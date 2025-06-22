@@ -51,7 +51,7 @@ const AddItem = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 ">
       <div className="max-w-2xl w-full bg-white shadow-md rounded-lg px-6 py-6">
         <h1 className="text-3xl font-bold mb-6 text-center text-blue-900">
           Add New Item
