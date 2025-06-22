@@ -86,9 +86,7 @@ export class Service {
         }
     }
 
-    // 4j!UqH6fMkFiA3F
-    // service id - service_a1rwnbm
-    // template_tavz1qm
+
 }
 
 const service = new Service();
