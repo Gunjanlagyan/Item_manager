@@ -51,134 +51,137 @@ const AddItem = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-6 bg-white shadow-md rounded-lg ">
-      <h1 className="text-3xl font-bold mb-6 text-center text-blue-900">
-        Add New Item
-      </h1>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-6">
+      <div className="max-w-2xl w-full bg-white shadow-md rounded-lg px-6 py-6">
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-900">
+          Add New Item
+        </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
-        <div>
-          <label className="block font-medium">
-            Item Name<span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            disabled={loading}
-            {...register("itemName", {
-              required: {
-                value: true,
-                message: "Item name is required",
-              },
-            })}
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="e.g. Nike Shoes"
-          />
-          {errors.itemName && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.itemName.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label className="block font-medium">
-            Item Type<span className="text-red-500">*</span>
-          </label>
-          <select
-            disabled={loading}
-            {...register("itemType", {
-              required: {
-                value: true,
-                message: "This field is required",
-              },
-            })}
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            <option value="">Select type</option>
-            <option value="Phone">Phone</option>
-            <option value="Watch">Watch</option>
-
-            <option value="Shirt">Shirt</option>
-            <option value="Pant">Pant</option>
-            <option value="Shoes">Shoes</option>
-            <option value="Sports Gear">Sports Gear</option>
-          </select>
-          {errors.itemType && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.itemType.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label className="block font-medium">Item Description</label>
-          <textarea
-            disabled={loading}
-            {...register("description")}
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Write a short description..."
-          ></textarea>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="w-full md:w-1/2">
-            <label className="block font-medium mb-1">
-              Cover Image<span className="text-red-500">*</span>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div>
+            <label className="block font-medium">
+              Item Name<span className="text-red-500">*</span>
             </label>
             <input
-              type="file"
-              accept="image/*"
+              type="text"
               disabled={loading}
-              {...register("coverImage", {
+              {...register("itemName", {
+                required: {
+                  value: true,
+                  message: "Item name is required",
+                },
+              })}
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="e.g. Nike Shoes"
+            />
+            {errors.itemName && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.itemName.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label className="block font-medium">
+              Item Type<span className="text-red-500">*</span>
+            </label>
+            <select
+              disabled={loading}
+              {...register("itemType", {
                 required: {
                   value: true,
                   message: "This field is required",
                 },
               })}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 file:mr-3 file:py-1 file:px-2 file:border-0  file:text-blue-900"
-            />
-            {errors.coverImage && (
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option value="">Select type</option>
+              <option value="Phone">Phone</option>
+              <option value="Watch">Watch</option>
+              <option value="Shirt">Shirt</option>
+              <option value="Pant">Pant</option>
+              <option value="Shoes">Shoes</option>
+              <option value="Sports Gear">Sports Gear</option>
+            </select>
+            {errors.itemType && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.coverImage.message}
+                {errors.itemType.message}
               </p>
             )}
           </div>
 
-          <div className="w-full md:w-1/2">
-            <label className="block font-medium mb-1">Additional Images</label>
-            <input
-              type="file"
-              accept="image/*"
-              multiple
+          <div>
+            <label className="block font-medium">Item Description</label>
+            <textarea
               disabled={loading}
-              {...register("additionalImages")}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 file:mr-3 file:py-1 file:px-2 file:border-0 file:text-blue-900 "
-            />
+              {...register("description")}
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Write a short description..."
+            ></textarea>
           </div>
-        </div>
 
-        <div className="flex justify-center gap-4">
-          <button
-            type="submit"
-            disabled={loading}
-            className={`px-6 py-2 rounded font-medium transition 
-      ${
-        loading
-          ? "bg-gray-400 text-white cursor-not-allowed"
-          : "bg-blue-900 hover:bg-blue-950 text-white"
-      }`}
-          >
-            {loading ? "Adding Item" : "Add Item"}
-          </button>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-1/2">
+              <label className="block font-medium mb-1">
+                Cover Image<span className="text-red-500">*</span>
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                disabled={loading}
+                {...register("coverImage", {
+                  required: {
+                    value: true,
+                    message: "This field is required",
+                  },
+                })}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 file:mr-3 file:py-1 file:px-2 file:border-0  file:text-blue-900"
+              />
+              {errors.coverImage && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.coverImage.message}
+                </p>
+              )}
+            </div>
 
-          <Link
-            to="/view-items"
-            className="px-6 py-2 rounded font-medium bg-gray-300 hover:bg-gray-400 text-black transition"
-          >
-            View Items
-          </Link>
-        </div>
-      </form>
+            <div className="w-full md:w-1/2">
+              <label className="block font-medium mb-1">
+                Additional Images
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                disabled={loading}
+                {...register("additionalImages")}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 file:mr-3 file:py-1 file:px-2 file:border-0 file:text-blue-900 "
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-center gap-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className={`px-6 py-2 rounded font-medium transition 
+          ${
+            loading
+              ? "bg-gray-400 text-white cursor-not-allowed"
+              : "bg-blue-900 hover:bg-blue-950 text-white"
+          }`}
+            >
+              {loading ? "Adding Item" : "Add Item"}
+            </button>
+
+            <Link
+              to="/view-items"
+              className="px-6 py-2 rounded font-medium bg-gray-300 hover:bg-gray-400 text-black transition"
+            >
+              View Items
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
